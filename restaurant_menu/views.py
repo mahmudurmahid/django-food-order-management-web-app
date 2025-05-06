@@ -4,7 +4,7 @@ from .models import FoodItem
 
 # Create your views here.
 class MenuListView(generic.ListView):
-    queryset = FoodItem.object.order_by("-date_created")
+    queryset = FoodItem.objects.order_by("-date_created")
     template_name = "index.html"
 
 
