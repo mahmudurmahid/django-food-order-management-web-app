@@ -1,13 +1,18 @@
 {% extends 'base.html' %}
 {% block content %}
-<header>
-  <h1>{{ fooditem.meal }}</h1>
-</header>
-<main>
-  <p>{{ fooditem.description }}</p>
-  <p>{{ fooditem.price }}</p>
-</main>
-<footer>
-  <p>&copy; 2023 Food Order Management</p>
-</footer>
+<div class="container mt-5">
+  <div class="card shadow rounded">
+    <div class="card-header bg-primary text-white">
+      <h2 class="mb-0">{{ fooditem.meal }}</h2>
+    </div>
+    <div class="card-body">
+      <p class="card-text"><strong>Description:</strong></p>
+      <p class="card-text">{{ fooditem.description }}</p>
+      <p class="card-text"><strong>Price:</strong> <span class="badge bg-success">{{ fooditem.price }}</span></p>
+    </div>
+    <div class="card-footer text-muted text-center">
+      <a href="{% url 'home' %}" class="btn btn-outline-primary btn-sm">← Back to Menu</a>
+    </div>
+  </div>
+</div>
 {% endblock content %}
