@@ -12,6 +12,7 @@ class MenuList(generic.ListView):
         context["meals"] = MEAL_TYPE
         return context
 
+
 class MenuItemDetail(generic.DetailView):
     model = FoodItem
     template_name = "menu_item_detail.html"

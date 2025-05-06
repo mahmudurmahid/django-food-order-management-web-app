@@ -1,33 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Food Order Management</title>
-    <link rel="stylesheet" href="static/css/style.css" />
-  </head>
-  <body>
-    <header>
-      <h1>Welcome to the Food Order Management App</h1>
-    </header>
-    <main>
-      {% for meal in meals %}
-        <h2>{{ meal.1 }}</h2>
-        {% for row in fooditem_list %} 
-          {% if row.meal_type == meal.0 %} 
-            {% if row.food_availability == 0 %}
-              <a href="{% url 'menu_item' row.pk %}"><p><b><del>{{ row.meal}}</del></b></p></a>
-              <p>{{ row.description }}</p>
-            {% else %}
-              <a href="{% url 'menu_item' row.pk %}"><p><b>{{ row.meal}}</b></p></a>
-              <p>{{ row.description }}</p>
-            {% endif %} 
-          {% endif %} 
-        {% endfor %} 
-      {% endfor %}
-    </main>
-    <footer>
-      <p>&copy; 2023 Food Order Management</p>
-    </footer>
-  </body>
-</html>
+<header>
+  <h1>Welcome to the Food Order Management App</h1>
+</header>
+<main>
+  {% for meal in meals %}
+    <h2>{{ meal.1 }}</h2>
+    {% for row in fooditem_list %} 
+      {% if row.meal_type == meal.0 %} 
+        {% if row.food_availability == 0 %}
+          <a href="{% url 'menu_item' row.pk %}"><p><b><del>{{ row.meal}}</del></b></p></a>
+          <p>{{ row.description }}</p>
+        {% else %}
+          <a href="{% url 'menu_item' row.pk %}"><p><b>{{ row.meal}}</b></p></a>
+          <p>{{ row.description }}</p>
+        {% endif %} 
+      {% endif %} 
+    {% endfor %} 
+  {% endfor %}
+</main>
+<footer>
+  <p>&copy; 2023 Food Order Management</p>
+</footer>
