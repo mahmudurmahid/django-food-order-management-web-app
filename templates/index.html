@@ -11,8 +11,12 @@
       <h1>Welcome to the Food Order Management App</h1>
     </header>
     <main>
-      <p>{{ meals }}</p>
-      <p>{{ ingredients }}</p>
+      {% for meal in meals %}
+      <h2>{{ meal.1 }}</h2>
+      {% for row in fooditem_list %}
+      <p><b>{{ row.meal}}</b></p>
+      <p>{{ row.description }}</p>
+      {% endfor %} {% endfor %}
     </main>
     <footer>
       <p>&copy; 2023 Food Order Management</p>
