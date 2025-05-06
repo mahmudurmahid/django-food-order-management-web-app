@@ -12,11 +12,19 @@
     </header>
     <main>
       {% for meal in meals %}
-      <h2>{{ meal.1 }}</h2>
-      {% for row in fooditem_list %}
-      <p><b>{{ row.meal}}</b></p>
-      <p>{{ row.description }}</p>
-      {% endfor %} {% endfor %}
+        <h2>{{ meal.1 }}</h2>
+        {% for row in fooditem_list %} 
+          {% if row.meal_type == meal.0 %} 
+            {% if row.food_availability == 0 %}
+              <p><b><del>{{ row.meal}}</del></b></p>
+              <p>{{ row.description }}</p>
+            {% else %}
+              <p><b>{{ row.meal}}</b></p>
+              <p>{{ row.description }}</p>
+            {% endif %} 
+          {% endif %} 
+        {% endfor %} 
+      {% endfor %}
     </main>
     <footer>
       <p>&copy; 2023 Food Order Management</p>
